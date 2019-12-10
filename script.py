@@ -1,7 +1,9 @@
+from linked_list import Node, LinkedList
+
 class HashMap:
   def __init__(self, size):
     self.array_size = size
-    self.array = [None for i in range(self.array_size)]
+    self.array = [LinkedList() for i in range(self.array_size)]
 
   def assign(self, key, value):
     hash_code = hash(key)

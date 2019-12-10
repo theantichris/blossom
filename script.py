@@ -5,3 +5,6 @@ class HashMap:
 
   def hash(self, key):
     return sum(key.encode())
+
+  def compress(self, hash_code):
+    return hash_code % self.array_size

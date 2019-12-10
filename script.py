@@ -3,6 +3,11 @@ class HashMap:
     self.array_size = size
     self.array = [None for i in range(self.array_size)]
 
+  def assign(self, key, value):
+    hash_code = hash(key)
+    array_index = compress(hash_code)
+    self.array[array_index] = [key, value]
+
   def hash(self, key):
     return sum(key.encode())
 

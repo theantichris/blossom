@@ -6,9 +6,15 @@ class HashMap:
     self.array = [LinkedList() for i in range(self.array_size)]
 
   def assign(self, key, value):
-    hash_code = hash(key)
+    hash_code = self.hash(key)
     array_index = self.compress(hash_code)
-    self.array[array_index] = [key, value]
+    payload = [key, value]
+    list_at_array = self.array[array_index]
+    for item in list_at_array:
+      if item[0] == key:
+        item[1] = value
+        return
+    list_at_array.insert(payload)
 
   def retrieve(self, key):
     hash_code = self.hash(key)

@@ -1,4 +1,5 @@
 from linked_list import Node, LinkedList
+from blossom_lib import flower_definitions
 
 class HashMap:
   def __init__(self, size):
@@ -14,7 +15,7 @@ class HashMap:
       if item[0] == key:
         item[1] = value
         return
-    list_at_array.insert(payload)
+    list_at_array.insert(Node(payload))
 
   def retrieve(self, key):
     hash_code = self.hash(key)

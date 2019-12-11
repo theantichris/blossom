@@ -19,12 +19,11 @@ class HashMap:
   def retrieve(self, key):
     hash_code = self.hash(key)
     array_index = self.compress(hash_code)
-    payload = self.array[array_index]
-
-    if payload is None or payload[0] != key:
-      return None
-    else:
-      return payload[1]
+    list_at_index = self.array[array_index]
+    for item in list_at_index:
+      if item[0] == key:
+        return item[1]
+    return None
 
   def hash(self, key):
     return sum(key.encode())
